@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:news_app/news_app_route.dart';
+import 'package:flutter_custom_tabs/flutter_custom_tabs.dart';
 
 class Article {
   Source source;
@@ -52,25 +53,44 @@ class Source {
 
 class News_Item extends StatelessWidget {
   Article news_item;
-  News_Item({Key key,this.news_item})
+  ColorSwatch bgcolor;
+  News_Item({Key key,this.news_item,this.bgcolor})
       :assert(news_item!=null),
+        assert(bgcolor!=null),
         super(key: key);
+
+  void _launchURL(BuildContext context) async {
+    try {
+      await launch(
+        news_item.url,
+        option: new CustomTabsOption(
+          toolbarColor: bgcolor,
+          enableDefaultShare: true,
+          enableUrlBarHiding: true,
+          showPageTitle: true,
+          animation: new CustomTabsAnimation.slideIn()
+
+      ),
+    );
+    } catch (e) {
+    // An exception is thrown if browser app is not installed on Android device.
+    debugPrint(e.toString());
+    }
+  }
 
   @override
   Widget build(BuildContext context){
     return Material(
       color: Colors.transparent,
       child: SizedBox(
-        height: 350.0,
+        height: 400.0,
         child: InkWell(
-          splashColor: Colors.lightGreenAccent,
-          highlightColor: Colors.lightGreenAccent,
-          onTap: (){
-            print('I am tapped!');
-          },
+          splashColor: bgcolor,
+          highlightColor: bgcolor,
+          onTap: ()=> _launchURL(context),
           child: Padding(
             padding: EdgeInsets.all(5.0),
-            child: Column(
+              child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(

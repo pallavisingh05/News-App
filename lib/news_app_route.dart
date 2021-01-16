@@ -6,19 +6,24 @@ import 'dart:convert';
 class News_item_route extends StatefulWidget{
 
   final String url_add;
-
-  News_item_route({Key key,@required this.url_add})
+  final String name;
+  final ColorSwatch clr;
+  News_item_route({Key key,@required this.name,@required this.url_add,@required this.clr})
       : assert(url_add != null),
+        assert(name!=null),
+        assert(clr!=null),
         super(key: key);
 
 
   @override
-  news_item_route createState() => news_item_route(url_add);
+  news_item_route createState() => news_item_route(name,url_add,clr);
 }
 
 class news_item_route extends State<News_item_route>{
   String url_add;
-  news_item_route(this.url_add);
+  String name;
+  ColorSwatch clr;
+  news_item_route(this.name,this.url_add,this.clr);
 
 
   Future<List<Article>> fetchAlbum() async {
@@ -43,7 +48,7 @@ class news_item_route extends State<News_item_route>{
 
   Widget news_item_list(List<Article> news_list){
       return ListView.builder(
-        itemBuilder: (BuildContext context, int index) => News_Item(news_item: news_list[index]),
+        itemBuilder: (BuildContext context, int index) => News_Item(news_item: news_list[index],bgcolor: clr),
         itemCount:(news_list.length>=10?10:news_list.length),
       );
   }
@@ -60,8 +65,8 @@ class news_item_route extends State<News_item_route>{
         });
 
     final appbar= AppBar(
-        backgroundColor: Colors.greenAccent,
-        title: Text('HeadLines',textAlign: TextAlign.center,
+        backgroundColor: clr,
+        title: Text(name,textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headline,),
     );
 

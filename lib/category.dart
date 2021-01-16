@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'news_app_route.dart';
+import 'package:flutter_custom_tabs/flutter_custom_tabs.dart';
 
 final c_height=100.0;
 final icon_size=60.0;
@@ -25,7 +26,7 @@ class Category extends StatelessWidget{
   void _navigateTonewsapprouter(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute<Null>(
       builder: (BuildContext context) {
-        return News_item_route(url_add: url_address);
+        return News_item_route(name: name,url_add: url_address,clr: colorswatch);
       },
     ));
   }
