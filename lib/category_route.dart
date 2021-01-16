@@ -42,12 +42,12 @@ class category_route extends State<Category_Route>{
   ];
 
   static const category_url=<String>[
-    'https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=9ce261e4efee47cea3956500b8049c9f',
-    'https://newsapi.org/v2/top-headlines?sources=new-scientist&apiKey=9ce261e4efee47cea3956500b8049c9f',
-    'https://newsapi.org/v2/top-headlines?sources=engadget&apiKey=9ce261e4efee47cea3956500b8049c9f',
-    'https://newsapi.org/v2/top-headlines?sources=mtv-news&apiKey=9ce261e4efee47cea3956500b8049c9f',
-    'https://newsapi.org/v2/top-headlines?sources=business-insider&apiKey=9ce261e4efee47cea3956500b8049c9f',
-    'https://newsapi.org/v2/top-headlines?sources=talksport&apiKey=9ce261e4efee47cea3956500b8049c9f',
+    'https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=API_KEY',
+    'https://newsapi.org/v2/top-headlines?sources=new-scientist&apiKey=API_KEY',
+    'https://newsapi.org/v2/top-headlines?sources=engadget&apiKey=API_KEY',
+    'https://newsapi.org/v2/top-headlines?sources=mtv-news&apiKey=API_KEY',
+    'https://newsapi.org/v2/top-headlines?sources=business-insider&apiKey=API_KEY',
+    'https://newsapi.org/v2/top-headlines?sources=talksport&apiKey=API_KEY',
   ];
 
   final category_list=<Category>[];
