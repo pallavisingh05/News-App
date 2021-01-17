@@ -102,7 +102,7 @@ class News_Item extends StatelessWidget {
                 ),
                     Text(news_item.title,textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.headline,),
-                    Text(news_item.content.substring(0,50)+'....Tap to know more.',style: TextStyle(fontSize: 15)),
+                    Text(news_item.content!=null?news_item.content.substring(0,50)+'....Tap to know more.':'',style: TextStyle(fontSize: 15)),
               ],
             ),
           ),
